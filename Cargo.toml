@@ -6,10 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-sp-core = { git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.40" }
-sp-trie = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.40" }
-trie-db = "0.27.1"
-hex = "0.4.3"
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk.git" }
+sp-trie = { git = "https://github.com/paritytech/polkadot-sdk.git" }
 hex-literal = "0.4.1"
-hash256-std-hasher ={version = "0.15.2"}
-hash-db = { version = "0.16.0", default-features = false}

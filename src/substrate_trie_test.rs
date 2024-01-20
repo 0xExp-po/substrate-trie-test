@@ -2,19 +2,14 @@
 
 use hex_literal::hex;
 use sp_core::{Blake2Hasher, H256};
-use sp_trie::{MemoryDB, LayoutV1, TrieDBMutBuilder};
-use trie_db::TrieMut;
-
-fn main() {
-    println!("Hello, world!");
-}
+use sp_trie::{MemoryDB, LayoutV1, trie_types::TrieDBMutBuilderV1, TrieMut, TrieHash, TrieDBMut};
 
 #[test]
 pub fn root() {
     let mut db = MemoryDB::new(&[0u8]);
-    let mut root = Default::default();
+    let mut root: TrieHash<LayoutV1<Blake2Hasher>> = Default::default();
 
-    let mut t: trie_db::TrieDBMut<'_, LayoutV1<Blake2Hasher>> = TrieDBMutBuilder::new(&mut db, &mut root).build();
+    let mut t: TrieDBMut<'_, LayoutV1<Blake2Hasher>> = TrieDBMutBuilderV1::new(&mut db, &mut root).build();
 
     let entries: Vec<(&[u8], &[u8])> = vec![
 		// "alfa" is at a hash-referenced leaf node.
@@ -39,7 +34,7 @@ pub fn root() {
     t.commit();
 
 	let root = &H256(hex!["f465577d5a13b1a48ea7245c559ab78175eb509b00829cf5db09d61ea795b74a"]);
-    let actual = t.root();
+    let actual: &TrieHash<LayoutV1<Blake2Hasher>> = t.root();
 
     println!("ROOT {:?}", actual);
 
