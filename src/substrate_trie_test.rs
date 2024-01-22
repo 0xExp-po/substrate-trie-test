@@ -86,10 +86,7 @@ mod test {
                 let _ = t.insert(&entry.0, &entry.1).expect("inserted");
             }
 
-            t.commit();
-
-            let root = t.root();
-            println!("{:?}", root);
+            println!("{:?}", t.root());
         }
     }
 }
