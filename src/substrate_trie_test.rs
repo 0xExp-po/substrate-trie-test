@@ -51,8 +51,8 @@ mod test {
         }
 
         #[test]
-		// IT COULD TAKE TIME (2 mins aprox)
         fn westend_14576856() {
+            // IT COULD TAKE TIME (2 mins aprox)
             let filename = String::from("./src/14576856block_entries.json");
 
             let file = File::open(filename).unwrap();
