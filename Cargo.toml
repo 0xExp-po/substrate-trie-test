@@ -9,3 +9,7 @@ edition = "2021"
 sp-core = { git = "https://github.com/paritytech/polkadot-sdk.git" }
 sp-trie = { git = "https://github.com/paritytech/polkadot-sdk.git" }
 hex-literal = "0.4.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.111"
+hex = "0.4.3"
+parity-scale-codec = "3.6.9"

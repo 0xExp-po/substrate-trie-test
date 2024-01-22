@@ -2453,7 +2453,11 @@ dependencies = [
 name = "substrate-trie-test"
 version = "0.1.0"
 dependencies = [
+ "hex",
  "hex-literal",
+ "parity-scale-codec",
+ "serde",
+ "serde_json",
  "sp-core",
  "sp-trie",
 ]
